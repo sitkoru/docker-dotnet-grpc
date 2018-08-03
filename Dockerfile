@@ -18,4 +18,4 @@ RUN apt-get update \
     && make \
     && make install \
     && rm -rf /tmp/grpc \
-    && apt remove build-essential autoconf libtool pkg-config unzip
+    && apt purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false build-essential autoconf libtool pkg-config unzip
