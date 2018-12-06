@@ -2,6 +2,10 @@
 
 Docker image with latest .NET Core SDK, protobuf compiler and grpc plugin to build and compile .NET classes from .proto files.
 
+# GRPC version
+
+v1.17.0
+
 # Usage
 
 ```
