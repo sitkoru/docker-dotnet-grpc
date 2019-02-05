@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:2.2-sdk
 
-ENV PROTOBUF_VERSION 3.6.1
+ENV PROTOBUF_VERSION 3.6.1.3
 
 RUN apt-get update \
     && apt-get install -y build-essential autoconf libtool pkg-config wget git unzip curl \
@@ -10,12 +10,12 @@ RUN apt-get update \
     && unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip \
     && chmod +x bin/protoc \
     && cp bin/protoc /usr/local/bin/protoc \
-    && rm -rf /tmp/protoc-${PROTOBUF_VERSION}-linux-x86_64 \
+    && cp -a include /opt/ \
     && cd /tmp \
     && mkdir grpc \
     && git clone --recursive -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc \
     && cd grpc \
     && make \
     && make install \
-    && rm -rf /tmp/grpc \
+    && rm -rf /tmp/* \
     && apt purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false build-essential autoconf libtool pkg-config unzip
