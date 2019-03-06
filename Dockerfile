@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:2.2-sdk
 
-ENV PROTOBUF_VERSION 3.6.1
+ENV PROTOBUF_VERSION 3.7.0
 
 RUN apt-get update \
     && apt-get install -y build-essential autoconf libtool pkg-config wget git unzip curl \
