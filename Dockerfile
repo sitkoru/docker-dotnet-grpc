@@ -1,6 +1,7 @@
 FROM microsoft/dotnet:2.2-sdk
 
 ENV PROTOBUF_VERSION 3.7.0
+ENV GRPC_VERSION v1.19.x
 
 RUN apt-get update \
     && apt-get install -y build-essential autoconf libtool pkg-config wget git unzip curl \
@@ -13,7 +14,7 @@ RUN apt-get update \
     && cp -a include /opt/ \
     && cd /tmp \
     && mkdir grpc \
-    && git clone --recursive -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc \
+    && git clone --recursive -b ${GRPC_VERSION} https://github.com/grpc/grpc \
     && cd grpc \
     && make \
     && make install \
