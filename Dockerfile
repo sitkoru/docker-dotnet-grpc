@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.2-sdk
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2.105
 
 ENV PROTOBUF_VERSION 3.7.0
 ENV GRPC_VERSION v1.19.x
